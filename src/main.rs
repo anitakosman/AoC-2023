@@ -41,7 +41,7 @@ fn calibrations2(input: String) -> Vec::<u32> {
     let all_digits = digits.iter().map(|d| d.name.as_str()).collect::<Vec<&str>>().join("|");
     let r = Regex::new(&*format!(r"\d|{}", all_digits)).unwrap();
     let r2 = Regex::new(&*format!(r"\d|{}", reverse(all_digits))).unwrap();
-    for line in input.split("\r\n") {
+    for line in input.lines() {
         let m1 = r.find(line).unwrap().as_str();
         let reversed_line = &*reverse(String::from(line));
         let m2 = reverse(String::from(r2.find(reversed_line).unwrap().as_str()));
