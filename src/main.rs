@@ -15,7 +15,7 @@ fn main() {
 fn calibrations(input: String) -> Vec::<u32> {
     let mut result = Vec::new();
     let re = Regex::new(r"\d").unwrap();
-    for line in input.split("\r\n") {
+    for line in input.lines() {
         let mut matches = re.find_iter(line);
         let a = matches.next().unwrap().as_str().parse::<u32>().unwrap();
         let b = matches.last().and_then(|m| Some(m.as_str())).and_then(|s| Some(s.parse::<u32>().unwrap())).unwrap_or(a);
