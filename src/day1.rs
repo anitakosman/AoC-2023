@@ -8,19 +8,19 @@ struct Digit {
 
 pub fn run(){
     let input = fs::read_to_string("src/resources/input1").expect("Should have been able to read the file");
-    part1(&input);
-    part2(&input);
+    println!("{}", part1(&input));
+    println!("{}", part2(&input));
 }
 
-fn part1(input: &String) {
-    println!("{}", calibrations(input).iter().sum::<u32>());
+#[test]
+fn test() {
+    let input = fs::read_to_string("src/resources/test1-1").expect("Should have been able to read the file");
+    assert_eq!(part1(&input), 142);
+    let input2 = fs::read_to_string("src/resources/test1-2").expect("Should have been able to read the file");
+    assert_eq!(part2(&input2), 281);
 }
 
-fn part2(input: &String) {
-    println!("{}", calibrations2(input).iter().sum::<u32>());
-}
-
-fn calibrations(input: &String) -> Vec::<u32> {
+fn part1(input: &String) -> u32 {
     let mut result = Vec::new();
     let re = Regex::new(r"\d").unwrap();
     for line in input.lines() {
@@ -29,10 +29,10 @@ fn calibrations(input: &String) -> Vec::<u32> {
         let b = matches.last().and_then(|m| Some(m.as_str())).and_then(|s| Some(s.parse::<u32>().unwrap())).unwrap_or(a);
         result.push(a * 10 + b);
     }
-    result
+    result.iter().sum()
 }
 
-fn calibrations2(input: &String) -> Vec::<u32> {
+fn part2(input: &String) -> u32 {
     let digits = vec![
         Digit { name: String::from("one"), value: 1 },
         Digit { name: String::from("two"), value: 2 },
@@ -57,7 +57,7 @@ fn calibrations2(input: &String) -> Vec::<u32> {
         let b = digits.iter().find(|d| d.name == m2 || d.value.to_string() == m2).unwrap_or_else(|| {println!("{}", line); panic!("")}).value;
         result.push(a * 10 + b);
     }
-    result
+    result.iter().sum()
 }
 
 fn reverse(s: String) -> String {

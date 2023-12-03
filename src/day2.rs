@@ -8,6 +8,13 @@ pub fn run() {
     println!("{}", part2(&input));
 }
 
+#[test]
+fn test() {
+    let input = fs::read_to_string("src/resources/test2").expect("Should have been able to read the file");
+    assert_eq!(part1(&input), 8);
+    assert_eq!(part2(&input), 2286);
+}
+
 fn part1(input: &String) -> u32 {
     let available_cubes = HashMap::from([
         ("red", 12),
