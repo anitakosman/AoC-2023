@@ -7,16 +7,16 @@ struct Digit {
 }
 
 pub fn run(){
-    let input = fs::read_to_string("src/resources/input1").expect("Should have been able to read the file");
+    let input = fs::read_to_string("resources/input01").expect("Should have been able to read the file");
     println!("{}", part1(&input));
     println!("{}", part2(&input));
 }
 
 #[test]
 fn test() {
-    let input = fs::read_to_string("src/resources/test1-1").expect("Should have been able to read the file");
+    let input = fs::read_to_string("resources/test01-1").expect("Should have been able to read the file");
     assert_eq!(part1(&input), 142);
-    let input2 = fs::read_to_string("src/resources/test1-2").expect("Should have been able to read the file");
+    let input2 = fs::read_to_string("resources/test01-2").expect("Should have been able to read the file");
     assert_eq!(part2(&input2), 281);
 }
 
