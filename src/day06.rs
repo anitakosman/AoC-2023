@@ -37,10 +37,8 @@ fn part2(input: &String) -> u64 {
 
 fn get_win_range(t: u64, d: u64) -> u64 {
     let sqrt = ((t * t - 4 * d) as f64).sqrt();
-    let max_float = (t as f64 + sqrt) / 2.0;
-    let min_float = (t as f64 - sqrt) / 2.0;
-    let max_x = if max_float.floor() == max_float {max_float as u64 - 1} else {max_float.floor() as u64};
-    let min_x = if min_float.ceil() == min_float {min_float as u64 + 1} else {min_float.ceil() as u64};
+    let max_x = (((t as f64 + sqrt) / 2.0) - 1.0).ceil() as u64;
+    let min_x = (((t as f64 - sqrt) / 2.0) + 1.0).floor() as u64;
     max_x - min_x + 1
 }
 
