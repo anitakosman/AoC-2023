@@ -2,14 +2,14 @@ use std::fs;
 use regex::Regex;
 
 pub fn run() {
-    let input = fs::read_to_string("resources/input03").expect("Should have been able to read the file");
+    let input = fs::read_to_string("src/resources/input03").expect("Should have been able to read the file");
     println!("{}", part1(&input));
     println!("{}", part2(&input));
 }
 
 #[test]
 fn test() {
-    let input = fs::read_to_string("resources/test03").expect("Should have been able to read the file");
+    let input = fs::read_to_string("src/resources/test03").expect("Should have been able to read the file");
     assert_eq!(part1(&input), 4361);
     assert_eq!(part2(&input), 467835);
 }

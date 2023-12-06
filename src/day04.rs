@@ -2,14 +2,14 @@ use std::collections::HashMap;
 use std::fs;
 
 pub fn run() {
-    let input = fs::read_to_string("resources/input04").expect("Should have been able to read the file");
+    let input = fs::read_to_string("src/resources/input04").expect("Should have been able to read the file");
     println!("{}", part1(&input));
     println!("{}", part2(&input));
 }
 
 #[test]
 fn test() {
-    let input = fs::read_to_string("resources/test04").expect("Should have been able to read the file");
+    let input = fs::read_to_string("src/resources/test04").expect("Should have been able to read the file");
     assert_eq!(part1(&input), 13);
     assert_eq!(part2(&input), 30);
 }
