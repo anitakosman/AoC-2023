@@ -4,6 +4,7 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 
 fn main() {
     let day = std::env::args().nth(1).and_then(|s| s.parse::<u32>().ok()).unwrap_or(0);
@@ -14,6 +15,7 @@ fn main() {
         4 => { day04::run(); }
         5 => { day05::run(); }
         6 => { day06::run(); }
+        7 => { day07::run(); }
         _ => { println!("Please specify which day as command line arg") }
     }
 }
