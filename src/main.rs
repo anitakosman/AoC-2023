@@ -1,3 +1,5 @@
+extern crate core;
+
 mod day01;
 mod day02;
 mod day03;
@@ -5,6 +7,7 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
+mod day08;
 
 fn main() {
     let day = std::env::args().nth(1).and_then(|s| s.parse::<u32>().ok()).unwrap_or(0);
@@ -16,6 +19,7 @@ fn main() {
         5 => { day05::run(); }
         6 => { day06::run(); }
         7 => { day07::run(); }
+        8 => { day08::run(); }
         _ => { println!("Please specify which day as command line arg") }
     }
 }
